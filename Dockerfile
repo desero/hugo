@@ -26,11 +26,12 @@ RUN go install -ldflags '-w -extldflags "-static"' -tags ${BUILD_TAGS}
 # ---
 
 FROM alpine:3.9
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates git
 COPY --from=build /go/bin/hugo /hugo
 ARG  WORKDIR="/site"
 WORKDIR ${WORKDIR}
 VOLUME  ${WORKDIR}
 EXPOSE  1313
 ENTRYPOINT [ "/hugo" ]
-CMD [ "--quiet", "--ignoreCache" ]
+
+ # CMD [ "--ignoreCache" ]
