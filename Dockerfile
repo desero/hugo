@@ -33,4 +33,4 @@ WORKDIR ${WORKDIR}
 VOLUME  ${WORKDIR}
 EXPOSE  1313
 ENTRYPOINT [ "/hugo" ]
-CMD [ "--quiet --ignoreCache" ]
+CMD [ "--quiet", "--ignoreCache" ]
